@@ -1,0 +1,46 @@
+<%= form_with(model: total) do |form| %>
+  <% if total.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(total.errors.count, "error") %> prohibited this total from being saved:</h2>
+
+      <ul>
+        <% total.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :firstName, style: "display: block" %>
+    <%= form.text_field :firstName %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :lastName, style: "display: block" %>
+    <%= form.text_field :lastName %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :twitter, style: "display: block" %>
+    <%= form.text_field :twitter %>
+  </div>
+  <div class="field form-group">
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.number_field :user_id , id: :total_user_id, type: :hidden, value:current_user.id %>
+  </div>
+  <%= current_user.id %>
+  <div class="field form-group">
+    <%= form.submit %>
+  </div>
+<% end %>

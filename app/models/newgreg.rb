@@ -1,0 +1,2 @@
+class Newgreg < ApplicationRecord
+end
